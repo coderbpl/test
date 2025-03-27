@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Bhopal | AI Workshop</title>
+     <!-- Preload critical assets -->
+    <link rel="preload" href="images/mplogo.png" as="image">
+    <link rel="preload" href="images/mw.png" as="image">
+    <link rel="preload" href="images/bg2.png" as="image">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/mplogo.png" type="image/png">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --secondary: #e67e22;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+            --text: #333;
+            --background: #f5f5f5;
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #2ecc71;
+            --background: #ecf0f1;
+            --text-dark: #333;
+            --text-light: #f8f9fa;
+            --primary-color: #2c3e50;
+            --secondary-color: #8E44AD;
+            --background-color: #f4f4f4;
+            --card-background: #ffffff;
+            --text-color: #333;
+            /* Responsive typography */
+            --font-size-base: 16px;
+            --font-size-small: 14px;
+            --font-size-large: 18px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            /*color: var(--text);*/
+            color: var(--text-dark);
+            line-height: 1.6;
+            /*
+            background: url('images/bgg.png') no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+            */
+        }
+
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+  /* Optimize Header Box */
+  header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px 0; /* Reduced padding */
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px; /* Reduce padding for compact size */
+}
+
+/* Logo Container */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px; /* Reduce font size for compactness */
+    font-weight: bold;
+}
+
+/* Left Logo */
+.logo img {
+    height: 50px; /* Reduce size */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Right Logo (MW Logo) */
+.right-logo {
+    height: 50px; /* Match left logo */
+    width: auto;
+    align-self: center;
+    margin-left: 15px; /* Adjust spacing */
+}
+
+
+.image-link img {
+    width: auto; /* Ensures the image fits within the parent */
+    height: 50px; /* Maintains aspect ratio */
+    display: block; /* Removes extra spacing below inline images */
+    object-fit: contain; /* Ensures the entire image fits without cropping */
+}
+
+/* Navigation Menu */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 15px; /* Reduce spacing */
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-links li {
+    margin-left: 15px; /* Reduce space */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px; /* Slightly smaller text */
+    transition: color 0.3s;
+}
+
+/* Hover Effects */
+.nav-links a:hover {
+    color: var(--secondary);
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+        /* Hero Section with AI Workshop Focus */
+        .hero {
+            /*background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/AIHome.png') center/cover no-repeat;*/
+            background: url('images/AIHome.png') center/cover no-repeat;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        /* Workshop Details Section */
+        .workshop-details {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 50px;
+        }
+
+        .workshop-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .workshop-info h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .workshop-highlights {
+            background-color: var(--background);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .highlight-icon {
+            color: var(--accent);
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #d35400;
+            transform: translateY(-3px);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 25%;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            /*align-items: center;*/
+        }
+        
+        .about-text h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+        }
+        .about-image video {
+        max-width: 100%; /* Makes it responsive */
+        height: 460px; /* Set fixed height */
+        /*object-fit: cover; /* Ensures it fills the height properly */
+    width: 570px;
+    object-fit: fill;
+    }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .cta {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .workshop-details {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        
+        .workshop-details h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .workshop-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .meta-icon {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+        
+        .workshop-agenda {
+            margin-top: 30px;
+        }
+        
+        .agenda-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .agenda-time {
+            min-width: 100px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    color: white; /* Adjust color if needed */
+    text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+        .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and email */
+}
+
+.icon {
+    font-size: 18px; /* Adjust icon size */
+}
+
+.email {
+    word-break: break-word; /* Ensures long emails wrap properly */
+    text-decoration: none;
+    color: white; /* Adjust color if needed */
+}
+
+.email:hover {
+    text-decoration: underline;
+}
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #444;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+        }
+        
+
+        .header {
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        .horizontal-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            gap: 20px;
+            padding-bottom: 20px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .destination-card {
+            flex: 0 0 350px;
+            scroll-snap-align: start;
+            background-color: var(--card-background);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover {
+            transform: scale(1.05);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .destination-card-content {
+            padding: 20px;
+        }
+
+        .destination-card-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .destination-card-content p {
+            color: #666;
+        }
+
+        .destination-card-content .type {
+            font-style: italic;
+            color: var(--secondary-color);
+            margin-top: 10px;
+        }
+
+        .destination-card-content .location {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 5px;
+        }
+
+        /* Custom scrollbar */
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .horizontal-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .food-card {
+                flex: 0 0 300px;
+            }
+            .destination-card {
+                flex: 0 0 300px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .workshop-grid{
+                grid-template-columns: 1fr;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 30px;
+                transition: left 0.3s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+             /* Responsive Logo */
+            .logo-container {
+                gap: 15px;
+            }
+
+            .about-image video {
+            height: 500px; /* Reduce height for mobile */
+        }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <!--<a href="#" class="logo">Discover Bhopal</a>-->
+                <a href="https://mpsedc.mp.gov.in" target="_blank" class="logo">
+    <img src="images/mplogo.png" alt="Govt. of MP"  width="150" height="100">
+    M.P. STATE ELECTRONICS DEVELOPMENT CORPORATION LTD
+  
+</a>
+
+                <div class="menu-toggle">☰</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#ai-workshop">AI Workshop</a></li>
+                    <li><a href="#about-bhopal">About Bhopal</a></li>
+                    <li><a href="#attractions">Attractions</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="https://mpsedc.mp.gov.in" target="_blank" class="image-link">
+                <img src="images/mw.png" alt="mplogo">
+                </a>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <!--<h1>AI Transformation in Governance</h1>
+                <h1>AI Innovation, State Consultation & UI/UX Workshop</h1>
+                <p>Two-day workshop exploring AI's potential to reshape public services, hosted by Madhya Pradesh State Electronics Development Corporation (Dept of Science and Technology, Govt of Madhya Pradesh) and National e-Governance Division (Ministry of Electronics and Information Technology, Government of India) </p>-->
+                <h1 style="color: white;">AI Innovation
+                    <br/>State Consultation & UI/UX<br/><span style="color: #36e9fd">Workshop</span>
+                    </h1>
+                <p>Two-day workshop featuring exciting sessions on the adoption of <br/>
+                    Artifical Intelligence and digital initiatives in e-Governance</p>
+                <a href="#ai-workshop" class="btn">Join the Workshop</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-workshop">
+        <div class="container">
+            <div class="section-title">
+                <h2>AI Workshop</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Transform Governance with AI & Innovation</h2>
+                    <p>HOSTED BY: <b> M.P. State Electronics Development Corporation Ltd. </b><br/>Department of Science and Technology, Government of Madhya Pradesh</p>
+                    <br/><p>This workshop is designed for policymakers, industry leaders, and tech enthusiasts. Gain insights from experts and explore innovative AI-driven solutions for governance.</p>
+                    
+                    <div class="workshop-details">
+                        <h3>Workshop Details</h3>
+                        <div class="workshop-meta">
+                            <div class="meta-item">
+                                <span class="meta-icon">📅</span>
+                                <span>May 08-09, 2025</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">🕒</span>
+                                <span>9:00 AM - 5:00 PM</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">📍</span>
+                                <span>Kushabhau Thakre Hall, Bhopal</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-icon">👥</span>
+                                <span>Central & State Governments, Academia, Industry</span>
+                            </div>
+                        </div>
+                        
+                        <h3>Highlights</h3>
+                        <ul style="list-style-position: inside; margin-left: 20px;">
+                            <li>AI-driven solutions for governance & citizen services</li>
+                            <li>Align initiatives with State & National priorities</li>
+                            <li>Enhance UI/UX for better digital services</li>
+                        </ul>
+                        
+                        <div class="workshop-agenda">
+                            <h3>Workshop Agenda</h3>
+                            <div class="agenda-item">
+                                <div class="agenda-time">Day 1</div>
+                                <div class="agenda-description"><b><span style="color: #108494;"> AI Workshop (8th May)</span></b><br/>Feature insights from Government, Academia, and Industry on topics like AI for good governance, future AI trends, AI crowd management, public service delivery, and more</div>
+                            </div>
+                            <div class="agenda-item">
+                                <div class="agenda-time">Day 2</div>
+                                <div class="agenda-description"><b><span style="color: #108494;"> State Consultation, UI/UX Workshop (9th May) </span></b><br/>NeGD full-day session on UI/UX best practices, digital governance, design principles, and public services with interactive discussions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/AI.png" alt="AI Workshop">
+                    <!--<video autoplay loop muted playsinline>
+        <source src="videos/AI.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>-->
+
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3665.98959827521!2d77.40439531012521!3d23.243465578932074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c429a390ceac1%3A0x6be71d5cfb18af14!2sKushabhau%20Thakre%20Hall!5e0!3m2!1sen!2sin!4v1743100220255!5m2!1sen!2sin" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+                </div>
+
+
+             
+                
+            </div>
+        </div>
+    </section>
+
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Register for MP State Workshop</h2>
+                <p>Discover AI initiatives from other States and Industry leaders, knowledge sharing, awareness and understanding the adoption of AI in governance</p>
+                <a href="https://forms.gle/k9xRTrAvhwAuT2qQ7" target="_blank"   class="btn btn-primary" style="margin-top: 20px;">Register Now</a>
+            </div>
+        </div>
+    </section>
+    <!--
+
+    <section id="workshop" class="container">
+        <div class="workshop-details">
+            <div class="workshop-grid">
+                <div class="workshop-info">
+                    <h2>AI Workshop: Reimagining Governance</h2>
+                    <p>A collaborative initiative by M.P. State Electronics Development Corporation and National e-Governance Division to explore cutting-edge AI solutions for public services.</p>
+                    
+                    <div class="workshop-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🗓️</div>
+                            <div>May 08-09, 2025 | Kushabhau Thakre Hall, Bhopal</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🤝</div>
+                            <div>Participants: Government Officials, Tech Leaders, Academics</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🧠</div>
+                            <div>Key Focus: AI-Driven Governance, Public Service Innovation</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn" style="margin-top: 20px;">Register Now</a>
+                </div>
+                
+                <div class="workshop-image">
+                    <img src="images/AI.png" alt="AI Workshop" style="width: 100%; border-radius: 10px;">
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+    <section id="about-bhopal">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Bhopal</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>The Heart of India</h2>
+                    <p>Bhopal, the capital city of Madhya Pradesh, is known as the "City of Lakes" for its various natural and artificial lakes. It is one of the greenest cities in India and is a perfect blend of scenic beauty, old historic monuments, and modern urban planning.</p>
+                    <p>Founded by Raja Bhoj in the 11th century, Bhopal has a rich cultural heritage that reflects the harmony between Hindu and Islamic traditions. The city's architecture, cuisine, and festivals showcase this unique cultural fusion.</p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">★</div>
+                            <div>
+                                <h3>Rich Cultural Heritage</h3>
+                                <p>Home to ancient temples, magnificent mosques, and palaces that showcase a blend of Hindu and Islamic architecture.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">★</div>
+                            <div>
+                                <h3>Natural Beauty</h3>
+                                <p>Adorned with beautiful lakes, gardens, and parks that provide a refreshing escape from urban life.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">★</div>
+                            <div>
+                                <h3>Modern Development</h3>
+                                <p>A rapidly growing smart city with excellent infrastructure, educational institutions, and technological advancements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!--<img src="/api/placeholder/600/400" alt="Bhopal City View">-->
+                    <img src="images/bpl.png" alt="Bhopal City View">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="attractions" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Attractions</h2>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-image">
+                        <!--<img src="/api/placeholder/400/300" alt="Upper Lake">-->
+                        <img src="images/Bhoj.png" alt="Upper Lake">
+                    </div>
+                    <div class="card-content">
+                        <h3>Upper Lake (Bada Talab)</h3>
+                        <p>One of the largest man-made lakes in Asia, offering boating, water sports, and stunning sunset views.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/TM.png" alt="Taj-ul-Masajid">
+                    </div>
+                    <div class="card-content">
+                        <h3>Taj-ul-Masajid</h3>
+                        <p>One of Asia's largest mosques, featuring impressive architecture with pink façades, marble flooring, and a spacious courtyard.</p>
+                    </div>
+                </div>
+                
+                 <div class="card">
+                    <div class="card-image">
+                        <img src="images/Museum.jpg" alt="Museum">
+                    </div>
+                    <div class="card-content">
+                        <h3>State Museum</h3>
+                        <p>Established in 1964, showcases 50,000+ artefacts in a 19th-century Indo-Saracenic building, featuring sculptures, coins, paintings, textiles, weapons, and tribal art from Madhya Pradesh’s rich heritage.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/vv.png" alt="Van Vihar National Park">
+                    </div>
+                    <div class="card-content">
+                        <h3>Van Vihar National Park & Zoo</h3>         
+        <p>A scenic wildlife sanctuary along the Upper Lake, home to tigers, leopards, bears, deer, and migratory birds in a natural habitat.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/BC.png" alt="Bhimbetka Rock Shelters">
+                    </div>
+                    <div class="card-content">
+                        <h3>Bhimbetka Rock Shelters</h3>
+                        <p>UNESCO World Heritage Site featuring prehistoric cave paintings dating back to approximately 30,000 years ago.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/SS.png" alt="Sanchi Stupa">
+                    </div>
+                    <div class="card-content">
+                        <h3>Sanchi Stupa</h3>
+                        <p>An ancient Buddhist monument built by Emperor Ashoka, known for its intricate carvings and historical significance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="food">
+        <div class="container">
+          
+            <div class="section-title">
+                <h2 id="dynamic-header">Bhopal's Destinations</h2>
+                <p id="dynamic-subheader">Explore the Best Shopping and Food Spots in the City</p>
+            </div>
+
+            <div class="horizontal-scroll" id="destinationContainer">
+                <!-- Shopping Destinations -->
+                <div class="destination-card" data-category="mall">
+                    <img src="images/db.png" alt="DB City Mall">
+                    <div class="destination-card-content">
+                        <h2>DB City Mall</h2>
+                        <p>A modern shopping destination with a wide range of national and international brands, entertainment zones, and food courts.</p>
+                        <p class="type">Shopping Mall</p>
+                        <p class="location">Zone-1, Maharana Pratap Nagar</p>
+                    </div>
+                </div>
+    
+                <div class="destination-card" data-category="market">
+                    <img src="images/nm.png" alt="New Market">
+                    <div class="destination-card-content">
+                        <h2>New Market</h2>
+                        <p>A bustling traditional market known for its vibrant atmosphere, local handicrafts, textiles, and everyday essentials.</p>
+                        <p class="type">Traditional Market</p>
+                        <p class="location">TT Nagar Area</p>
+                    </div>
+                </div>
+    
+                <div class="destination-card" data-category="street">
+                    <img src="images/cb.png" alt="Chowk Bazaar">
+                    <div class="destination-card-content">
+                        <h2>Chowk Bazaar</h2>
+                        <p>An iconic street shopping destination famous for traditional clothing, jewelry, and local handicrafts with a rich historical charm.</p>
+                        <p class="type">Street Shopping</p>
+                        <p class="location">Old Bhopal</p>
+                    </div>
+                </div>
+    
+                <div class="destination-card" data-category="mall">
+                    <img src="images/am.png" alt="Ashima Mall">
+                    <div class="destination-card-content">
+                        <h2>Ashima Mall</h2>
+                        <p>A popular shopping center offering a mix of retail stores, clothing brands, electronics, and a multiplex cinema.</p>
+                        <p class="type">Shopping Mall</p>
+                        <p class="location">Hoshangabad Road</p>
+                    </div>
+                </div>
+    
+    
+                <div class="destination-card" data-category="street">
+                    <img src="images/mps.png" alt="MP Nagar Market">
+                    <div class="destination-card-content">
+                        <h2>MP Nagar Market</h2>
+                        <p>A vibrant street shopping area with numerous shops, street vendors, and a wide variety of local and branded products.</p>
+                        <p class="type">Street Shopping</p>
+                        <p class="location">Maharana Pratap Nagar</p>
+                    </div>
+                </div>
+    
+                <!-- Food Destinations -->
+    
+                <div class="destination-card" data-category="restaurant">
+                    <img src="images/poha.png" alt="Poha">
+                    <div class="destination-card-content">
+                        <h2>Poha Jalebi</h2>
+                        <p>A day started with poha garnished with laung sev, with golden jeeraman sprinkled all over, along with jalebi made in desi ghee marks a great start.</p>
+                        <p class="type">Madhya Pradesh Traditional</p>
+                        <p class="location">Famous in Old Bhopal Area</p>
+                    </div>
+                </div>
+    
+                <div class="destination-card" data-category="restaurant">
+                    <img src="images/veg.png" alt="Bhopali Paneer Rezala">
+                    <div class="destination-card-content">
+                        <h2>Bhopali Paneer Rezala</h2>
+                        <p>A unique vegetarian dish with soft paneer cubes in a light, aromatic gravy that captures the essence of Bhopal's cuisine.</p>
+                        <p class="type">Bhopal Vegetarian Cuisine</p>
+                        <p class="location">Maharana Pratap Nagar Restaurants</p>
+                    </div>
+                </div>
+
+                <div class="destination-card" data-category="restaurant">
+                    <img src="images/si.png" alt="South Indian">
+                    <div class="destination-card-content">
+                        <h2>Idli/Dosa</h2>
+                        <p>Soft and Fluffy IDLI/DOSA served with Sambhar and Nariyal chutney. Perfect for breakfast</p>
+                        <p class="type">Bhopal South Indian Cuisine</p>
+                        <p class="location">Manohar Dairay</p>
+                    </div>
+                </div>
+    
+                <div class="destination-card" data-category="restaurant">
+                    <img src="images/Shahi-Tukda.png" alt="Shahi Tukda">
+                    <div class="destination-card-content">
+                        <h2>Shahi Tukda</h2>
+                        <p>A royal dessert of crisp bread slices soaked in sweetened, thickened milk, topped with nuts and silver foil.</p>
+                        <p class="type">Mughlai Dessert</p>
+                        <p class="location">Chowk Bazaar Sweet Shops</p>
+                    </div>
+                </div>
+    
+                <div class="destination-card" data-category="restaurant">
+                    <img src="images/nv.png" alt="Chicken Korma">
+                    <div class="destination-card-content">
+                        <h2>Chicken Korma</h2>
+                        <p>A luxurious Mughlai curry featuring tender chicken simmered in a rich, creamy sauce with a blend of aromatic spices.</p>
+                        <p class="type">Mughlai Cuisine</p>
+                        <p class="location">Popular in Old Bhopal's Chowk Area</p>
+                    </div>
+                </div>
+    
+                <div class="destination-card" data-category="restaurant">
+                    <img src="images/gk.png" alt="Bhopali Gosht">
+                    <div class="destination-card-content">
+                        <h2>Bhopali Gosht</h2>
+                        <p>A robust meat curry that showcases the depth of Bhopal's non-vegetarian culinary traditions, slow-cooked to perfection.</p>
+                        <p class="type">Bhopal Non-Vegetarian Tradition</p>
+                        <p class="location">Bhopal's Food Street</p>
+                    </div>
+                </div>
+           
+    </div>
+    </div>
+    </section>
+    
+    
+  
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>Madhya Pradesh, with its vast forests, rivers, and rich biodiversity, is emerging as the Green & Smart Hub of India by integrating cutting-edge technology with sustainable development</p>
+                    <!--<p>We are dedicated to promoting Bhopal's rich cultural heritage and advancing technological education through innovative workshops and events.</p>-->
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about-bhopal">About Bhopal</a></li>
+                        <li><a href="#attractions">Attractions</a></li>
+                        <li><a href="#ai-workshop">AI Workshop</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>📞 0755 2518300</li>
+                        <li class="contact-item">
+    <span class="icon">✉️</span>
+    <a href="mailto:AI.MPSeDC_STATE_NODAL@mpsedcl.onmicrosoft.com" class="email">
+        AI.MPSeDC_STATE_NODAL@mpsedcl.onmicrosoft.com
+    </a>
+</li>
+                        <li>🏢 State IT Center, Arera Hills, Bhopal</li>
+                        <li>Madhya Pradesh, India - 462011</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+    <h3>Follow Us</h3>
+    <div class="social-links">
+        <a href="https://www.facebook.com/MPSeDCDST/posts/pfbid02XhDc7Fp6g89yXDoJ5KnXYG2y2JUY7zDYejynKcgHoNqDhrYXHecbrqDw6pu9hR7ol" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://x.com/MPSeDC_DST/status/1902961987665138076" target="_blank">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com/p/DHc08Q7tFSH/" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/posts/mpsedc_leaders-gis2025-it-activity-7308727770266714113-n4UZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAACgMK4gBfNji_IS6zctHTKDeIrIbljP7eaM" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
+    <p style="margin-top: 20px;">Subscribe to our newsletter for updates on events and workshops.</p>
+</div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 MPSEDC. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple JavaScript for mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+        // Dynamic header change based on scroll
+        const destinationContainer = document.getElementById('destinationContainer');
+        const dynamicHeader = document.getElementById('dynamic-header');
+        const dynamicSubheader = document.getElementById('dynamic-subheader');
+
+        destinationContainer.addEventListener('scroll', function() {
+            const scrollPosition = this.scrollLeft;
+            const cardWidth = this.querySelector('.destination-card').offsetWidth;
+            const currentCardIndex = Math.round(scrollPosition / cardWidth);
+            
+            const destinations = [
+                { header: 'Bhopal\'s Destinations', subheader: 'Explore the Best Shopping and Food Spots in the City' },
+                { header: 'Shopping Destinations', subheader: 'Explore the Best Shopping Spots in Bhopal' },
+                { header: 'Food Destinations', subheader: 'Discover Culinary Delights in Bhopal' }
+            ];
+
+            // Determine header based on scroll position
+            let headerIndex = 0;
+            if (currentCardIndex >= 0 && currentCardIndex < 5) {
+                headerIndex = 1; // Shopping destinations
+            } else if (currentCardIndex >= 5) {
+                headerIndex = 2; // Food destinations
+            }
+
+            dynamicHeader.textContent = destinations[headerIndex].header;
+            dynamicSubheader.textContent = destinations[headerIndex].subheader;
+        });
+    </script>
+</body>
+</html>
