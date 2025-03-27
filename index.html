@@ -142,6 +142,9 @@
          color: var(--text-light);
          text-align: center;
          padding: 100px 0;
+         position: relative; /* Added for potential overlay */
+    width: 100%;
+    min-height: 100vh; /* Full viewport height */
          }
          .hero-content {
          max-width: 800px;
@@ -524,9 +527,10 @@
          }
          @media (max-width: 768px) {
             .hero {
-        padding: 60px 20px; /* Reduced padding, added side margins */
-        background-position: center center; /* Ensure image is centered */
-        background-size: cover; /* Ensures full coverage */
+        background-position: center center;
+        background-size: cover;
+        min-height: 100vh; /* Ensure full screen height on mobile */
+        padding: 60px 20px;
     }
          .food-card {
          flex: 0 0 300px;
@@ -578,10 +582,12 @@
          }
         }
         @media screen and (max-width: 480px) {
-    .hero {
-        padding: 40px 15px; /* Further reduced padding for smaller screens */
-        background-attachment: scroll; /* Fixes potential iOS background issues */
+            .hero {
+        background-attachment: scroll;
+        background-size: cover; /* Important for full coverage */
         background-position: center center;
+        min-height: 100vh;
+        padding: 40px 15px;
     }
 }
       </style>
