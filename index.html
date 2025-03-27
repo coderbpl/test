@@ -145,6 +145,7 @@
          position: relative; /* Added for potential overlay */
     width: 100%;
     min-height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent any potential overflow */
          }
          .hero-content {
          max-width: 800px;
@@ -531,6 +532,7 @@
         background-size: cover;
         min-height: 100vh; /* Ensure full screen height on mobile */
         padding: 60px 20px;
+        max-width: 100%;
     }
          .food-card {
          flex: 0 0 300px;
@@ -588,6 +590,7 @@
         background-position: center center;
         min-height: 100vh;
         padding: 40px 15px;
+        max-width: 100%;
     }
 }
       </style>
