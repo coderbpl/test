@@ -138,7 +138,7 @@
          /* Hero Section with AI Workshop Focus */
          .hero {
          /*background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/AIHome.png') center/cover no-repeat;*/
-         background: url('images/AIHome.png') center/cover no-repeat;
+         background: url('images/negd.png') center/cover no-repeat;
          color: var(--text-light);
          text-align: center;
          padding: 100px 0;
@@ -284,6 +284,8 @@
          .about-text h2 {
          color: var(--primary);
          margin-bottom: 20px;
+         text-align: justify;
+         text-justify: inter-word;
          }
          .about-image {
          border-radius: 10px;
@@ -328,7 +330,8 @@
          margin: 0 auto;
          }
          .cta h2 {
-         font-size: 2.5rem;
+         /*font-size: 2.5rem;*/
+         font-size: 1.5rem;
          margin-bottom: 20px;
          }
          .workshop-details {
@@ -526,6 +529,46 @@
          background: var(--secondary-color);
          border-radius: 5px;
          }
+         #attractions #food{
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+#attractions.show #food.show{
+    opacity: 1;
+    max-height: 1000px; /* Adjust based on content */
+    overflow: visible;
+}
+       
+
+.intro-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+.highlight {
+    color: #1a5ac9; /* Gold Highlight */
+    font-weight: bold;
+}
+
+
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+}
+
+
+
+
          @media (max-width: 768px) {
             .hero {
                 background-image: url('images/AIHome_mon.png');
@@ -605,7 +648,7 @@
                <img src="images/mplogo.png" alt="Govt. of MP"  width="150" height="100">
                M.P. STATE ELECTRONICS DEVELOPMENT CORPORATION LTD
                </a>
-               <div class="menu-toggle">☰</div>
+               
                <ul class="nav-links">
                   <li><a href="#home">Home</a></li>
                   <li><a href="#ai-workshop">AI Workshop</a></li>
@@ -616,6 +659,7 @@
                <a href="https://mpsedc.mp.gov.in" target="_blank" class="image-link">
                <img src="images/mw.png" alt="mplogo">
                </a>
+               <div class="menu-toggle">☰</div>
             </nav>
          </div>
       </header>
@@ -625,13 +669,13 @@
                <!--<h1>AI Transformation in Governance</h1>
                   <h1>AI Innovation, State Consultation & UI/UX Workshop</h1>
                   <p>Two-day workshop exploring AI's potential to reshape public services, hosted by Madhya Pradesh State Electronics Development Corporation (Dept of Science and Technology, Govt of Madhya Pradesh) and National e-Governance Division (Ministry of Electronics and Information Technology, Government of India) </p>-->
-               <h1 style="color: white;">AI Innovation &
-                  <br/>State Consultation UI/UX<br/><span style="color: #36e9fd">Workshop</span>
+               <h1 style="color: white;">AI Innovation
+                  <br/>State Consultation & UI/UX<br/><span style="color: #36e9fd">Workshop</span>
                </h1>
                <p>Two-day workshop featuring exciting sessions on the adoption of <br/>
                   Artifical Intelligence and digital initiatives in e-Governance
                </p>
-               <a href="#ai-workshop" class="btn">Join the Workshop</a>
+               <a href="#ai-workshop" class="btn btn-primary">Register for Workshop</a>
             </div>
          </div>
       </section>
@@ -686,11 +730,11 @@
                   </div>
                </div>
                <div class="about-image">
-                  <img src="images/AI.png" alt="AI Workshop">
-                  <!--<video autoplay loop muted playsinline>
-                     <source src="videos/AI.mp4" type="video/mp4">
+                  <!--<img src="images/aid.png" alt="AI Workshop">-->
+                  <video autoplay loop muted playsinline>
+                     <source src="videos/aii.mp4" type="video/mp4">
                      Your browser does not support the video tag.
-                     </video>-->
+                     </video>
                   <div class="map-container">
                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3665.98959827521!2d77.40439531012521!3d23.243465578932074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c429a390ceac1%3A0x6be71d5cfb18af14!2sKushabhau%20Thakre%20Hall!5e0!3m2!1sen!2sin!4v1743100220255!5m2!1sen!2sin" 
                         width="100%" 
@@ -707,7 +751,7 @@
       <section class="cta">
          <div class="container">
             <div class="cta-content">
-               <h2>Register for MP State Workshop</h2>
+               <h2>Register for AI Innovation <br/> State Consultation & UI/UX Workshop</h2>
                <p>Discover AI initiatives from other States and Industry leaders, knowledge sharing, awareness and understanding the adoption of AI in governance</p>
                <a href="https://forms.gle/k9xRTrAvhwAuT2qQ7" target="_blank"   class="btn btn-primary" style="margin-top: 20px;">Register Now</a>
             </div>
@@ -751,33 +795,44 @@
                <h2>About Bhopal</h2>
             </div>
             <div class="about-content">
-               <div class="about-text">
+               <div class="about-text" style="text-align: justify;">
                   <h2>The Heart of India</h2>
-                  <p>Bhopal, the capital city of Madhya Pradesh, is known as the "City of Lakes" for its various natural and artificial lakes. It is one of the greenest cities in India and is a perfect blend of scenic beauty, old historic monuments, and modern urban planning.</p>
-                  <p>Founded by Raja Bhoj in the 11th century, Bhopal has a rich cultural heritage that reflects the harmony between Hindu and Islamic traditions. The city's architecture, cuisine, and festivals showcase this unique cultural fusion.</p>
+                  <p>
+                    Experience the <span class="highlight">seamless fusion</span> of <b>nature, rich cultural heritage, and cutting-edge technology</b>, shaping a 
+                    <span class="highlight">smarter, sustainable future</span> in Madhya Pradesh.
+                </p>
+        <br/>
+                <p>Bhopal, the capital city of Madhya Pradesh, is renowned as the <b>"City of Lakes"</b>, with a unique mix of natural lakes that enhance its scenic beauty. As one of <b>India’s greenest cities</b>, it perfectly balances heritage, urban development, and technological advancements.</p>
+        
+                <p>Founded by <b>Raja Bhoj in the 11th century</b>, Bhopal carries a deep <b>cultural heritage</b>, reflecting the harmony between <b>Hindu and Islamic traditions</b>. 
+</p>        
+
                   <div class="feature-list">
                      <div class="feature-item">
-                        <div class="feature-icon">★</div>
+                        <div class="feature-icon">🏛</div>
                         <div>
                            <h3>Rich Cultural Heritage</h3>
                            <p>Home to ancient temples, magnificent mosques, and palaces that showcase a blend of Hindu and Islamic architecture.</p>
                         </div>
                      </div>
                      <div class="feature-item">
-                        <div class="feature-icon">★</div>
+                        <div class="feature-icon">🌿</div>
                         <div>
                            <h3>Natural Beauty</h3>
-                           <p>Adorned with beautiful lakes, gardens, and parks that provide a refreshing escape from urban life.</p>
+                           <p style="text-align: justify;">Adorned with beautiful lakes, gardens, and parks that provide a refreshing escape from urban life.</p>
                         </div>
                      </div>
                      <div class="feature-item">
-                        <div class="feature-icon">★</div>
+                        <div class="feature-icon">🚀</div>
                         <div>
-                           <h3>Modern Development</h3>
-                           <p>A rapidly growing smart city with excellent infrastructure, educational institutions, and technological advancements.</p>
+                            <h3>Modern Development & Technology</h3>
+                            <p>Evolving as a smart city, integrating AI-driven governance, digital transformation, and advanced infrastructure to build a future-ready ecosystem.</p>
+            
                         </div>
                      </div>
                   </div>
+                  <!-- Know More Button -->
+                <button id="toggleAttractions" class="btn btn-primary" style="margin-top: 20px;">Know More</button>
                </div>
                <div class="about-image">
                   <!--<img src="/api/placeholder/600/400" alt="Bhopal City View">-->
@@ -786,7 +841,7 @@
             </div>
          </div>
       </section>
-      <section id="attractions" style="background-color: #f9f9f9;">
+      <section id="attractions" style="display: none; background-color: #f9f9f9; transition: all 0.5s ease;">
          <div class="container">
             <div class="section-title">
                <h2>Popular Attractions</h2>
@@ -850,7 +905,7 @@
             </div>
          </div>
       </section>
-      <section id="food">
+      <section id="food" style="display: none; background-color: #f9f9f9; transition: all 0.5s ease;">
          <div class="container">
             <div class="section-title">
                <h2 id="dynamic-header">Bhopal's Destinations</h2>
@@ -926,9 +981,9 @@
                   <img src="images/si.png" alt="South Indian">
                   <div class="destination-card-content">
                      <h2>Idli/Dosa</h2>
-                     <p>Soft and Fluffy IDLI/DOSA served with Sambhar and Nariyal chutney. Perfect for breakfast</p>
+                     <p>Soft and Fluffy Idli/Dosa served with Sambhar and Nariyal chutney. Perfect for breakfast</p>
                      <p class="type">Bhopal South Indian Cuisine</p>
-                     <p class="location">Manohar Dairay</p>
+                     <p class="location">Manohar Dairy</p>
                   </div>
                </div>
                <div class="destination-card" data-category="restaurant">
@@ -973,9 +1028,9 @@
                   <h3>Quick Links</h3>
                   <ul>
                      <li><a href="#home">Home</a></li>
+                     <li><a href="#ai-workshop">AI Workshop</a></li>
                      <li><a href="#about-bhopal">About Bhopal</a></li>
                      <li><a href="#attractions">Attractions</a></li>
-                     <li><a href="#ai-workshop">AI Workshop</a></li>
                   </ul>
                </div>
                <div class="footer-column">
@@ -1061,6 +1116,43 @@
              dynamicHeader.textContent = destinations[headerIndex].header;
              dynamicSubheader.textContent = destinations[headerIndex].subheader;
          });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("toggleAttractions");
+    const attractionsSection = document.getElementById("attractions");
+    const foodSection = document.getElementById("food");
+
+    toggleButton.addEventListener("click", function () {
+        if (attractionsSection.style.display === "none" || attractionsSection.style.opacity === "0") {
+            attractionsSection.style.display = "block";
+            setTimeout(() => {
+                attractionsSection.classList.add("show");
+            }, 10);
+            toggleButton.textContent = "Show Less";
+        } else {
+            attractionsSection.classList.remove("show");
+            setTimeout(() => {
+                attractionsSection.style.display = "none";
+            }, 500);
+            toggleButton.textContent = "Know More";
+        }
+
+        if (foodSection.style.display === "none" || foodSection.style.opacity === "0") {
+            foodSection.style.display = "block";
+            setTimeout(() => {
+                foodSection.classList.add("show");
+            }, 10);
+            toggleButton.textContent = "Show Less";
+        } else {
+            foodSection.classList.remove("show");
+            setTimeout(() => {
+                foodSection.style.display = "none";
+            }, 500);
+            toggleButton.textContent = "Know More";
+        }
+    });
+});
       </script>
    </body>
 </html>
