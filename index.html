@@ -566,12 +566,48 @@
     margin-right: 15px;
 }
 
+/* Scroll-to-Top Button */
+#scrollToTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--secondary);
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
 
+    #scrollToTop:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+    }
+
+
+    /* Adjust spacing between logo and menu toggle */
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        margin-left: auto !important;
+        padding-left: 15px; /* Added spacing */
+    }
 
 
          @media (max-width: 768px) {
+
+            
+            
             .hero {
-                background-image: url('images/AIHome_mon.png');
+                background-image: url('images/negd.png');
         background-position: center center;
         background-size: cover;
         min-height: 100vh; /* Ensure full screen height on mobile */
@@ -651,7 +687,7 @@
                
                <ul class="nav-links">
                   <li><a href="#home">Home</a></li>
-                  <li><a href="#ai-workshop">AI Workshop</a></li>
+                  <li><a href="#ai-workshop">About Workshop</a></li>
                   <li><a href="#about-bhopal">About Bhopal</a></li>
                   <li><a href="#attractions">Attractions</a></li>
                   <li><a href="#contact">Contact</a></li>
@@ -659,7 +695,7 @@
                <a href="https://mpsedc.mp.gov.in" target="_blank" class="image-link">
                <img src="images/mw.png" alt="mplogo">
                </a>
-               <div class="menu-toggle" style="text-align: right;float: right;">☰</div>
+               <div class="menu-toggle" style="margin-left: auto !important;">☰</div>
             </nav>
          </div>
       </header>
@@ -682,7 +718,7 @@
       <section id="ai-workshop">
          <div class="container">
             <div class="section-title">
-               <h2>AI Workshop</h2>
+               <h2>About Workshop</h2>
             </div>
             <div class="about-content">
                <div class="about-text">
@@ -753,7 +789,7 @@
             <div class="cta-content">
                <h2>Register for AI Innovation <br/> State Consultation & UI/UX Workshop</h2>
                <p>Discover AI initiatives from other States and Industry leaders, knowledge sharing, awareness and understanding the adoption of AI in governance</p>
-               <a href="https://forms.gle/k9xRTrAvhwAuT2qQ7" target="_blank"   class="btn btn-primary" style="margin-top: 20px;">Register Now</a>
+               <a href="https://forms.office.com/r/cPnbmzX2TV?origin=lprLink" target="_blank"   class="btn btn-primary" style="margin-top: 20px;">Register Now</a>
             </div>
          </div>
       </section>
@@ -1028,7 +1064,7 @@
                   <h3>Quick Links</h3>
                   <ul>
                      <li><a href="#home">Home</a></li>
-                     <li><a href="#ai-workshop">AI Workshop</a></li>
+                     <li><a href="#ai-workshop">About Workshop</a></li>
                      <li><a href="#about-bhopal">About Bhopal</a></li>
                      <li><a href="#attractions">Attractions</a></li>
                   </ul>
@@ -1036,11 +1072,11 @@
                <div class="footer-column">
                   <h3>Contact Info</h3>
                   <ul>
-                     <li>📞 0755 2518300</li>
+                     <li>📞 0755 2518300, 740, 634</li>
                      <li class="contact-item">
                         <span class="icon">✉️</span>
-                        <a href="mailto:AI.MPSeDC_STATE_NODAL@mpsedcl.onmicrosoft.com" class="email">
-                        AI.MPSeDC_STATE_NODAL@mpsedcl.onmicrosoft.com
+                        <a href="mailto:mptechhub@mp.gov.in" class="email">
+                        mptechhub@mp.gov.in
                         </a>
                      </li>
                      <li>🏢 State IT Center, Arera Hills, Bhopal</li>
@@ -1071,6 +1107,8 @@
             </div>
          </div>
       </footer>
+      <!-- Scroll to Top Button -->
+<button id="scrollToTop" onclick="scrollToTop()">&#8679;</button>
       <script>
          // Simple JavaScript for mobile menu toggle
          document.addEventListener('DOMContentLoaded', function() {
@@ -1153,6 +1191,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+ // Show scroll-to-top button when scrolling
+ window.addEventListener("scroll", function () {
+        const scrollToTopBtn = document.getElementById("scrollToTop");
+        if (window.scrollY > 300) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    });
+
+    // Scroll to top function
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
       </script>
    </body>
 </html>
